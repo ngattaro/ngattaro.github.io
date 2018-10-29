@@ -1,7 +1,29 @@
-
+.slideanim {
+    visibility:hidden;
+    visibility:visible\9;/*For old IE browsers IE6-8 */
+}
+.slideanim.slide {
+    visibility: visible;
+    animation: slide 1s;
+}
+.slideanim::after {
+    /* useful when its child elements are float:left; */
+    content: "";
+    display: table;
+    clear: both;
+}
+@keyframes slide {
+    0% {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 .main-nav {
-    width: 100%;
-
+    width: 100vw;
     background: black;
     min-height: 35px;
     overflow: hidden;
@@ -58,6 +80,8 @@ header {
     background: url('images/coverraw.jpg') no-repeat center left ;
     background-size: cover;
     min-height: 640px;
+    width: 100vw;
+
     margin: -8px -8px 10px -8px;
     line-height: 1.5;
 }
@@ -129,23 +153,28 @@ main .story{
 .socialMediaLinks a {
     font-size: 24px;
     margin: 10px 10px 0 0;
-    color: #ffc107;
+    color: #757575  ;
     text-decoration: none;
-    background: #f5f5f5;
+    background: white;
     padding: 15px;
-    width: 26px;
+    width: 25px;
     text-align: center;
-    border-radius: 50%;
+    border-radius: 100%;
+    transition: all .5s;
+    -webkit-box-shadow: 0px 11px 24px -12px rgba(120,120,120,1);
+    -moz-box-shadow: 0px 11px 24px -12px rgba(120,120,120,1);
+    box-shadow: 0px 11px 24px -12px rgba(120,120,120,1);
 
 }
 
 .socialMediaLinks a:hover {
     transform: scale(1.1);
-    -webkit-box-shadow: 0px 11px 24px -12px rgba(120,120,120,1);
-    -moz-box-shadow: 0px 11px 24px -12px rgba(120,120,120,1);
-    box-shadow: 0px 11px 24px -12px rgba(120,120,120,1);
+    background: #0096d9;
+    color: #e0e0e0;
+    -webkit-box-shadow: 0px 9px 27px -3px rgba(0, 0, 0, 0.21);
+    -moz-box-shadow: 0px 9px 27px -3px rgba(0, 0, 0, 0.21);
+    box-shadow: 0px 9px 27px -3px rgba(0, 0, 0, 0.21);
 }
-
 footer .avatar {
     margin-top: 500px;
     margin-left: 550px;
@@ -162,63 +191,46 @@ footer .avatar:hover {
     -moz-box-shadow: 0px 11px 24px -12px rgba(120,120,120,1);
     box-shadow: 0px 11px 24px -12px rgba(120,120,120,1);
 }
-
 .chart {
-    border-top: 5px;
-    margin-top: 50px;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(100, 1fr);
-    grid-column-gap: 30px;
-    height: 200px;
-    padding: 5px 10px;
+
+    display: table;
+    table-layout: fixed;
+
+    width: 60%;
+    height: 180px;
+    margin: 0 auto;
+
+    background-image: linear-gradient(bottom, rgba(0, 0, 0, 0.1) 2%, transparent 2%);
+    background-size: 100% 50px;
+
     -webkit-box-shadow: 0 8px 6px -6px rgba(120,120,120,1);
     -moz-box-shadow: 0 8px 6px -6px rgba(120,120,120,1);
     box-shadow: 0 8px 6px -6px rgba(120,120,120,1);
-
 }
 
-.bar {
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    width: 30px;
+.chart li{
+    display:table-cell;
+    vertical-align:bottom;
+}
+
+.chart span {
+    margin: 0 1em;
+    display: block;
     border-radius: 10px 10px 0 0;
-    transition: all .6s ease;
-    grid-row-end: 102;
     border: 2px solid rgba(0, 0, 0, 0.1);
-    animation: 1s anim-lightspeed-in ease forwards;
-
-
-}
-.bar-1 {
-    grid-row-start: 20;
-    background-color: #b3e5fc;
-}
-.bar-2 {
-    grid-row-start: 1;
-    background-color: #fd7061 ;
-}
-
-.bar-3 {
-    grid-row-start: 30;
-    background-color: #ffcb98;
-}
-
-.bar-4 {
-    grid-row-start: 10;
-    background-color: #c5dfc9;
+    animation: draw 2s ease-in-out;
 
 }
 
-.bar-5 {
-    grid-row-start: 50;
-    background-color: #a6b1d9;
+.chart span::before{
+     left:0;right:0;top:100%;
+     padding:5px 1em 0;
+     display:block;
+     text-align:center;
+     content:attr(title);
+     word-wrap: break-word;
+ }
+
+@keyframes draw{
+    0%{height:0;}
 }
-
-.bar-6 {
-    grid-row-start: 60;
-    background-color: #fdcc61;
-}
-
-
