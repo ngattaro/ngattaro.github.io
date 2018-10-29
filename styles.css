@@ -4,7 +4,7 @@
 }
 .slideanim.slide {
     visibility: visible;
-    animation: slide 1s;
+    animation: slide .1s;
 }
 .slideanim::after {
     /* useful when its child elements are float:left; */
@@ -22,16 +22,6 @@
         transform: translateY(0);
     }
 }
-.main-nav {
-    width: 100vw;
-    background: black;
-    min-height: 35px;
-    overflow: hidden;
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    text-align: center;
-
-}
 .fontBold{
     font-family: 'Righteous', cursive;
 }
@@ -40,13 +30,24 @@
     font-weight: 300;
 
 }
+.main-nav {
+    width: 100vw;
+    background: black;
+    min-height: 30px;
+    overflow: hidden;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    text-align: center;
+
+}
+
 .nav {
     display: flex;
     justify-content: space-around;
     font-weight: 700;
     list-style-type: none;
     margin: 0 auto;
-    padding: 10px 30px 10px 70px;
+    padding: 5px 30px 5px 70px;
 
     transition: width 0.3s linear;
 }
@@ -80,8 +81,6 @@ header {
     background: url('images/coverraw.jpg') no-repeat center left ;
     background-size: cover;
     min-height: 640px;
-    width: 100vw;
-
     margin: -8px -8px 10px -8px;
     line-height: 1.5;
 }
@@ -104,7 +103,7 @@ body{
 }
 .heading {
     font-size: 35px;
-    margin-top: 70px;
+    padding-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -196,12 +195,12 @@ footer .avatar:hover {
     display: table;
     table-layout: fixed;
 
-    width: 60%;
-    height: 180px;
+    width: 40%;
+    height: 160px;
     margin: 0 auto;
 
     background-image: linear-gradient(bottom, rgba(0, 0, 0, 0.1) 2%, transparent 2%);
-    background-size: 100% 50px;
+    background-size: 60% 50px;
 
     -webkit-box-shadow: 0 8px 6px -6px rgba(120,120,120,1);
     -moz-box-shadow: 0 8px 6px -6px rgba(120,120,120,1);
@@ -218,7 +217,7 @@ footer .avatar:hover {
     display: block;
     border-radius: 10px 10px 0 0;
     border: 2px solid rgba(0, 0, 0, 0.1);
-    animation: draw 2s ease-in-out;
+    animation: draw 3s ease-in;
 
 }
 
